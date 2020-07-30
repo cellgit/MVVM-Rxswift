@@ -11,6 +11,33 @@ import UIKit
 import Moya
 import RxSwift
 
+struct CType {
+    static let json = "application/json"
+    static let form = "application/x-www-form-urlencoded"
+}
+
+struct HeaderKey {
+    static let contentType = "Content-Type"
+    static let token = "KY-TOKEN"
+    static let visitorToken = "KY-VISITOR-TOKEN"
+    static let time = "timestamp"
+    static let sign = "sign"
+    static let version = "KY-VERSION"
+    static let appType = "KY-APPTYPE"
+}
+
+extension Bundle {
+    static func appVersion() -> String {
+        var versionStr = ""
+        if let info = Bundle.main.infoDictionary {
+            let appVersion = info["CFBundleShortVersionString"] as? String ?? "Unknown"
+            let appBuild = info[kCFBundleVersionKey as String] as? String ?? "Unknown"
+            versionStr = (appVersion == "Unknown") ? appVersion : appBuild
+        }
+        return versionStr
+    }
+}
+
 //MARK:网络请求时 使用这个对象
 let HotKeyListAPIProvider: MoyaProvider = MoyaProvider<HotKeyListAPI>(stubClosure: MoyaProvider.neverStub, plugins: [NetWorkResponsePlugin()])
 
@@ -43,13 +70,15 @@ extension HotKeyListAPI: TargetType {
         //            let v_token =  "IDFVTool.getIDFVStr()"
         //            return ["KY-TOKEN": "token" ,"KY-VISITOR-TOKEN": v_token, "KY-APPTYPE": "1" , "KY-VERSION": "1.0.0","KY-CATEGORY": "2"]
         //        }
-        return ["":""]
+        
+        return ["Content-Type":"application/json"]
     }
     
     
     /// The path to be appended to `baseURL` to form the full `URL`.枚举请求接口
     var path: String {
-        return ""
+//        let path = "hotkeys"
+        return ""//APIManager.baseUrl + path
     }
     
     /// The HTTP method used in the request.枚举请求不同接口返回不同的请求方式

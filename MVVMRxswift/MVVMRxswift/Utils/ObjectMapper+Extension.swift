@@ -47,7 +47,7 @@ extension Observable {
         }
     }
     
-    // MARK:- 解析数组
+    // MARK:- 解析数组: 有key值
     public func mapArray<T: Mappable>(type: T.Type, key: String? = nil) -> Observable<[T]> {
         
         return self.map { response in
@@ -74,6 +74,21 @@ extension Observable {
                 //直接解析数据
                 return Mapper<T>().mapArray(JSONArray: dicts)
             }
+        }
+    }
+    
+    // MARK:- 解析数组: 无key值
+    public func mapArrayWithoutKey<T: Mappable>(type: T.Type) -> Observable<[T]> {
+        
+        return self.map { response in
+            guard let array = response as? [Any] else {
+                throw NetWorkServerError.parseJSONError
+            }
+            guard let dicts = array as? [[String: Any]] else {
+                throw NetWorkServerError.parseJSONError
+            }
+            //直接解析数据
+            return Mapper<T>().mapArray(JSONArray: dicts)
         }
     }
 }

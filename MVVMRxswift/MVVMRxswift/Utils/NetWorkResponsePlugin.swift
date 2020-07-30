@@ -15,7 +15,7 @@ import Moya
 //import Result
 //import MBProgressHUD
 
-public struct NetWorkResponsePlugin:PluginType {
+public struct NetWorkResponsePlugin: PluginType {
     
     
     //请求即将发送
@@ -57,7 +57,8 @@ public struct NetWorkResponsePlugin:PluginType {
     
     //MARK:处理返回数据信息状态
     fileprivate func handleResult(_ response:Response,path:String) {
-        debugPrint("response === \(response)")
+        debugPrint("response === \(response.data)")
+        
         guard let dict = try? JSONSerialization.jsonObject(with: response.data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any] else {
             print("返回数据解析失败")
             return

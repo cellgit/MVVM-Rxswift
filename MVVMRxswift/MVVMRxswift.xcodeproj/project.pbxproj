@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		F284803724D1260F0046D347 /* ZJYResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F284803324D1260F0046D347 /* ZJYResultModel.swift */; };
 		F284803824D1260F0046D347 /* Moya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F284803424D1260F0046D347 /* Moya+Extension.swift */; };
 		F284803A24D126290046D347 /* ZJYGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F284803924D126290046D347 /* ZJYGlobal.swift */; };
+		F2A3A76524D253CA00E44E57 /* ZJYViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A3A76424D253CA00E44E57 /* ZJYViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		F284803324D1260F0046D347 /* ZJYResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZJYResultModel.swift; sourceTree = "<group>"; };
 		F284803424D1260F0046D347 /* Moya+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Moya+Extension.swift"; sourceTree = "<group>"; };
 		F284803924D126290046D347 /* ZJYGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZJYGlobal.swift; sourceTree = "<group>"; };
+		F2A3A76424D253CA00E44E57 /* ZJYViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZJYViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,6 @@
 				0CB49F70CAB8CFB16F6AF516 /* Pods-MVVMRxswift.debug.xcconfig */,
 				3994391C05F4D48A9B020705 /* Pods-MVVMRxswift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				F284803924D126290046D347 /* ZJYGlobal.swift */,
+				F2A3A76424D253CA00E44E57 /* ZJYViewModel.swift */,
 				F284802F24D1255D0046D347 /* URL+Extension.swift */,
 				F284803424D1260F0046D347 /* Moya+Extension.swift */,
 				F284803224D1260F0046D347 /* NetWorkResponsePlugin.swift */,
@@ -432,6 +434,7 @@
 				F284802924D1251F0046D347 /* HotKeyListViewController.swift in Sources */,
 				F284803724D1260F0046D347 /* ZJYResultModel.swift in Sources */,
 				F2847FF424D124270046D347 /* ViewController.swift in Sources */,
+				F2A3A76524D253CA00E44E57 /* ZJYViewModel.swift in Sources */,
 				F2847FF024D124270046D347 /* AppDelegate.swift in Sources */,
 				F2847FF224D124270046D347 /* SceneDelegate.swift in Sources */,
 				F284802B24D1252A0046D347 /* HotKeyListModel.swift in Sources */,

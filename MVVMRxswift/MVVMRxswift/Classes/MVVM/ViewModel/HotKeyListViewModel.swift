@@ -9,19 +9,24 @@
 import Foundation
 import RxSwift
 
-class HotKeyListViewModel {
+
+/**
+ * ViewModel类可被封装的 ZJYViewModel 所替代,具体到每一个请求ViewModel可废弃
+ */
+class HotKeyListViewModel: NSObject {
     
     // 获取列表
-    static func list(param:[String:Any], callback:((_ model: HotKeyListModel)->())?) {
+    #warning ("废弃")
+    static func list(param:[String:Any], callback:((_ model: [HotKeyListModel])->())?) {
         HotKeyListAPIProvider.rx.request(HotKeyListAPI.list(param: ["":""]))
             .asObservable()
             .filterSuccessfulStatusCodes()
             .mapJSON()
-            .mapModel(type: HotKeyListModel.self) // "res"
+            .mapArrayWithoutKey(type: HotKeyListModel.self)
             .subscribe(onNext: { (result) in
                 callback?(result)
             }, onError: { (error) in
-                callback?(HotKeyListModel())
+                callback?([HotKeyListModel]())
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
     }

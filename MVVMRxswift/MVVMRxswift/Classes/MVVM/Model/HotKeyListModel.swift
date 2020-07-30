@@ -9,14 +9,13 @@
 import Foundation
 import ObjectMapper
 
-
 struct HotKeyListModel: Mappable {
     /// id
     var id: Int?
     /// 快捷键
-    var hotkey: Int?
+    var hotkey: String?
     /// 功能描述
-    var function: Int?
+    var function: String?
     
     mutating func mapping(map: Map) {
         id <- map["id"]

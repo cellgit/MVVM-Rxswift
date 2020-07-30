@@ -17,10 +17,11 @@ class HotKeyListViewController: UIViewController {
     }
     
     private func loadData() {
-        HotKeyListViewModel.list(param: ["":""]) { (model) in
-            debugPrint("id = \(String(describing: model.id)), hotkey = \(String(describing: model.hotkey)), function = \(String(describing: model.function))")
-            
-            debugPrint("json ===== \(model.toJSON())")
+        let param = HotKeyListAPI.list(param: ["":""])
+        ZJYViewModel.requestListWithoutKey(param: param, type: HotKeyListModel.self, provider: HotKeyListAPIProvider, success: { (list) in
+            debugPrint("list======\(String(describing: list.toJSONString()))")
+        }) { (error) in
+            debugPrint("======= \(error)")
         }
     }
 
